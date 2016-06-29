@@ -4,7 +4,6 @@ namespace Codeception\Module;
 
 use Codeception\Module;
 use Codeception\Module\Asserts;
-use Codeception\Module\Filesystem;
 use Codeception\TestInterface;
 
 
