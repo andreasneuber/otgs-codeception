@@ -462,17 +462,19 @@ class FlexiDb extends CodeceptionModule implements DbInterface
         $this->loadCurrentDump();
 
         $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
-        $this->_initialize();    }
+        $this->_initialize();
+    }
 
     public function start_with_a_site_in_german_with_no_english()
     {
         $defaultDump = $this->config['dump'];
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => 'codeception/_data/cleandb.sql'));
+        $this->getModule('FlexiDb')->_reconfigure(array('dump' => 'codeception/_data/german-default-no-english.sql'));
         $this->loadCurrentDump();
 
         $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
-        $this->_initialize();    }
+        $this->_initialize();
+    }
 
     protected function loadCurrentDump()
     {
