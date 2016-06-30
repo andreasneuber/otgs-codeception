@@ -1,6 +1,6 @@
 {
-    "name": "dimitrismitsis/codeception-debug-log",
-    "description": "Module that checks if WP's debug log has entries",
+    "name": "onthegosystems/otgs-codeception",
+    "description": "Set of WordPress helpers from OnTheGoSystems",
     "authors": [
         {
             "name": "Dimitris Mitsis",
