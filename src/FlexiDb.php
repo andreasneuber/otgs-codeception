@@ -445,35 +445,50 @@ class FlexiDb extends CodeceptionModule implements DbInterface
 
     public function start_with_a_clean_site()
     {
-        $defaultDump = $this->config['dump'];
+        if (isset($this->config['cleandump'])) {
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => 'codeception/_data/cleandb.sql'));
-        $this->loadCurrentDump();
+            $defaultDump = $this->config['dump'];
+            $currentDump = $this->config['cleandump'];
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
-        $this->_initialize();
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $currentDump));
+            $this->loadCurrentDump();
+
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
+        } else {
+            echo "cleandump not set, default database dump loaded instead.";
+        }
     }
 
-    public function start_with_a_site_in_german()
+    public function start_with_dump1()
     {
-        $defaultDump = $this->config['dump'];
+        if (isset($this->config['dump1'])) {
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => 'codeception/_data/german-default.sql'));
-        $this->loadCurrentDump();
+            $defaultDump = $this->config['dump'];
+            $currentDump = $this->config['dump1'];
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
-        $this->_initialize();
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $currentDump));
+            $this->loadCurrentDump();
+
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
+        } else {
+            echo "Dump1 not set, default database dump loaded instead.";
+        }
     }
 
-    public function start_with_a_site_in_german_with_no_english()
+    public function start_with_dump2()
     {
-        $defaultDump = $this->config['dump'];
+        if (isset($this->config['dump2'])) {
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => 'codeception/_data/german-default-no-english.sql'));
-        $this->loadCurrentDump();
+            $defaultDump = $this->config['dump'];
+            $currentDump = $this->config['dump2'];
 
-        $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
-        $this->_initialize();
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $currentDump));
+            $this->loadCurrentDump();
+
+            $this->getModule('FlexiDb')->_reconfigure(array('dump' => $defaultDump));
+        } else {
+            echo "Dump2 not set, default database dump loaded instead.";
+        }
     }
 
     protected function loadCurrentDump()
@@ -485,5 +500,10 @@ class FlexiDb extends CodeceptionModule implements DbInterface
 
         $this->cleanup();
         $this->loadDump();
+    }
+
+    public function _cleanup()
+    {
+        $this->_initialize();
     }
 }
