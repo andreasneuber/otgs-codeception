@@ -17,6 +17,7 @@ use Helper\Scenario;
        dump1: codeception/_data/germandefault.sql
        dump2: codeception/_data/german-default-no-english.sql
  */
+
 class WPCliDb extends Cli
 {
 
@@ -72,16 +73,15 @@ class WPCliDb extends Cli
         $this->runShellCommand("wp cache flush");
 
         $oldURL = "http://wpbeta.dev";
-
         $newURL = $this->getModule('WebDriver')->_getUrl();
 
-        if ($newURL != $oldURL ) {
-            $this->runShellCommand("wp search-replace " . $oldURL  . " " . $newURL);
+        if ($newURL != $oldURL) {
+            $this->runShellCommand("wp search-replace " . $oldURL . " " . $newURL);
         }
-
     }
 
-    public function _failed(TestInterface $test, $fail) {
-        $this->runShellCommand( "wp db export codeception/_output/dbexport.sql");
+    public function _failed(TestInterface $test, $fail)
+    {
+        $this->runShellCommand("wp db export codeception/_output/dbexport.sql");
     }
 }
