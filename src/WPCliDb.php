@@ -70,4 +70,8 @@ class WPCliDb extends Cli
         $this->runShellCommand("wp transient delete-all");
         $this->runShellCommand("wp cache flush");
     }
+
+    public function _failed(TestInterface $test, $fail) {
+        $this->runShellCommand( "wp db export codeception/_output/dbexport.sql");
+    }
 }
