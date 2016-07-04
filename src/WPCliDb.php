@@ -3,6 +3,7 @@ namespace Codeception\Module;
 
 use Codeception\Module as CodeceptionModule;
 use Codeception\TestInterface;
+use Helper\Scenario;
 
 /*
  * WP-Cli Db module for CodeCeption
@@ -71,7 +72,8 @@ class WPCliDb extends Cli
         $this->runShellCommand("wp cache flush");
 
         $oldURL = "http://wpbeta.dev";
-        $newURL = $this->getModule('WebDriver')->config['url'];
+
+        $newURL = $this->getModule('WebDriver')->_getUrl();
 
         if ($newURL != $oldURL ) {
             $this->runShellCommand("wp search-replace" . $oldURL  . " " . $newURL);
