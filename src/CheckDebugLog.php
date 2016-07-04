@@ -15,6 +15,12 @@ class CheckDebugLog extends Module
         }
     }
 
+    public function _before(TestInterface $step) {
+        if ( file_exists($this->config['WPpath'] . "wp-content/debug.log" )) {
+            unlink($this->config['WPpath'] . "wp-content/debug.log");
+        }
+    }
+
     public function _after(TestInterface $step)
     {
         if (file_exists($this->config['WPpath'] . "wp-content/debug.log")) {
