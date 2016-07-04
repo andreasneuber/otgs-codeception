@@ -76,7 +76,7 @@ class WPCliDb extends Cli
         $newURL = $this->getModule('WebDriver')->_getUrl();
 
         if ($newURL != $oldURL ) {
-            $this->runShellCommand("wp search-replace" . $oldURL  . " " . $newURL);
+            $this->runShellCommand("wp search-replace " . $oldURL  . " " . $newURL);
         }
 
     }
