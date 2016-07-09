@@ -43,8 +43,6 @@ class WPCliDb extends Cli
         } else {
             echo "cleandump not set, default database dump loaded instead.";
         }
-        $this->runShellCommand("wp db reset --yes");
-        $this->runShellCommand("wp db import codeception/_data/cleandb.sql");
     }
 
     public function start_with_dump1()
