@@ -73,6 +73,7 @@ class WPCliDb extends Cli
     {
         $this->runShellCommand("wp transient delete-all");
         $this->runShellCommand("wp cache flush");
+        $this->runShellCommand("wp core update-db");
 
         $oldURL = "http://wpbeta.dev";
         $newURL = $this->getModule('WebDriver')->_getUrl();
