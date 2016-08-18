@@ -47,6 +47,8 @@ class WPCliDb extends Cli
 
     public function start_with_dump1()
     {
+        $this->runShellCommand("wp db reset --yes");
+
         if (isset($this->config['dump1'])) {
             $this->runShellCommand("wp db import " . $this->config['dump1']);
             $this->db_cleanup();
@@ -57,6 +59,8 @@ class WPCliDb extends Cli
 
     public function start_with_dump2()
     {
+        $this->runShellCommand("wp db reset --yes");
+
         if (isset($this->config['dump2'])) {
             $this->runShellCommand("wp db import " . $this->config['dump2']);
             $this->db_cleanup();
