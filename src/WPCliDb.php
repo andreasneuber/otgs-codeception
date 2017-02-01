@@ -76,7 +76,7 @@ class WPCliDb extends Cli
         $this->runShellCommand("wp core update-db");
 
         $oldURL = "http://wpbeta.dev";
-        $newURL = $this->getModule('WebDriver')->_getUrl();
+        $newURL = $this->getModule('WPWebDriver')->_getUrl();
 
         if ($newURL != $oldURL) {
             $this->runShellCommand("wp search-replace " . $oldURL . " " . $newURL);
