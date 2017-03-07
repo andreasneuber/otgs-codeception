@@ -85,6 +85,7 @@ class WPCliDb extends Cli
 
     public function _failed(TestInterface $test, $fail)
     {
-        $this->runShellCommand("wp db export " . codecept_output_dir(). "dbexport.sql");
+        $test_name = $test->getMetadata()->getName();
+        $this->runShellCommand("wp db export " . codecept_output_dir() . $test_name . "_db.sql");
     }
 }
