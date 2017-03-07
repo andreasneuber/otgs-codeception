@@ -16,6 +16,8 @@ WPCliDb:
     cleandump: codeception/_data/cleandb.sql
     dump1: codeception/_data/germandefault.sql
     dump2: codeception/_data/german-default-no-english.sql
+    oldUrl: 'http://old.dev'
+    newUrl: 'http://new.dev'
 ```
 
 Those dumps can be loaded at the beginning of a test as:  
