@@ -82,6 +82,18 @@ class WPCliDb extends Cli
             $this->runShellCommand("wp search-replace " . $oldURL . " " . $newURL);
         }
     }
+       
+    public function set_checkpoint($checkpoint = "checkpoint.sql")
+    {
+        $this->runShellCommand("rm -f " . codecept_output_dir() . $checkpoint);
+        $this->runShellCommand("wp db export " . codecept_output_dir() . $checkpoint);
+    }
+
+    public function rollback_to_checkpoint($checkpoint = "checkpoint.sql")
+    {
+        $this->runShellCommand("wp db reset --yes");
+        $this->runShellCommand("wp db import " . codecept_output_dir() . $checkpoint);
+    }
 
     public function _failed(TestInterface $test, $fail)
     {
