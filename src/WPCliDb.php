@@ -21,7 +21,7 @@ use Helper\Scenario;
 class WPCliDb extends Cli
 {
 
-    public function _cleanup()
+    public function _before( \Codeception\TestCase $test )
     {
         $this->runShellCommand("wp db reset --yes");
 
