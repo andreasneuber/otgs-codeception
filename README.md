@@ -29,3 +29,18 @@ start_with_a_clean_site() //loads "cleandump"
 start_with_dump1() //loads "dump1"
 start_with_dump2() //loads "dump2"
 ```
+## WPLoad:
+Loads WP functions via inclusion of file wp-load.php.
+After adding this module all what is needed is this call:
+```
+$I->load_WP();
+```
+If you prefer to load only the basic WP API:
+```
+$I->load_WP( 'minimal' );
+```
+### Example usage in codeception.yml:
+```
+WPLoad:
+    path: 'wp-load.php'
+```
