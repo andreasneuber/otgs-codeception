@@ -35,10 +35,6 @@ After adding this module all what is needed is this call:
 ```
 $I->load_WP();
 ```
-If you prefer to load only the basic WP API:
-```
-$I->load_WP( 'minimal' );
-```
 ### Example usage in codeception.yml:
 ```
 WPLoad:
